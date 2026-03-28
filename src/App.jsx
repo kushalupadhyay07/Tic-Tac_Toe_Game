@@ -4,11 +4,13 @@ import Home from "./Websitepages/Home";
 import Docs from "./Websitepages/Docs";
 import About from "./Websitepages/About";
 import Navbar from "./Components/Navbar";
+import ContextProvider from "./store/Context";
 
 export default function App() {
   return (
     <div className="bg-red-500 h-screen">
-      <BrowserRouter>
+      <ContextProvider>
+        <BrowserRouter>
         <Navbar></Navbar>
 
         <Routes>
@@ -17,6 +19,7 @@ export default function App() {
           <Route path="/about" element={<About></About>}></Route>
         </Routes>
       </BrowserRouter>
+      </ContextProvider>
     </div>
   );
 }

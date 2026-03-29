@@ -43,11 +43,19 @@ function ContextProvider({ children }) {
 
   useEffect(() => {
     checkpairs();
-  }, [items]);
+  }, [items]);  
+
+  function newgame(){
+    setItems(["", "", "", "", "", "", "", "", ""])
+    setToggle(true)
+    setisactive(true)
+
+  }
+ 
 
   return (
     <Context.Provider
-      value={{ items, setItems, toggle, setToggle, handleClick, isactive }}
+      value={{ items, setItems, toggle, setToggle, handleClick, isactive,newgame }}
     >
       {children}
     </Context.Provider>

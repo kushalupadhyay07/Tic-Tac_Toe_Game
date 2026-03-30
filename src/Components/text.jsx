@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { Context } from "../store/Context";
 
 export default function Text() {
-  let { isactive, toggle } = useContext(Context);
+  let { isactive, toggle,winner } = useContext(Context);
   return (
     <div className="text-2xl font-semibold text-white h-1/10">
       {isactive && (
@@ -18,7 +18,13 @@ export default function Text() {
 
       {!isactive && (
         <div>
-          {toggle ? <h1>Player 2 Wins 🎉</h1> : <h1>Player 1 Wins 🎉</h1>}
+          {
+            winner==="X" && <h1>Player 1 is win </h1>
+            
+          }
+          {
+            winner==="O" && <h1>Player 2 is win </h1>
+          }
         </div>
       )}
     </div>

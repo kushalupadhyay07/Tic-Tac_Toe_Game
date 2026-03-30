@@ -18,7 +18,7 @@ function ContextProvider({ children }) {
       setToggle(!toggle);
     }
   }
-
+  let [winner, setwinner] = useState("");
   function checkpairs() {
     const winningPatterns = [
       [0, 1, 2],
@@ -36,6 +36,7 @@ function ContextProvider({ children }) {
 
       if (items[a] !== "" && items[a] === items[b] && items[b] === items[c]) {
         setisactive(false);
+        setwinner(items[a]);
         return;
       }
     }
@@ -43,19 +44,27 @@ function ContextProvider({ children }) {
 
   useEffect(() => {
     checkpairs();
-  }, [items]);  
+  }, [items]);
 
-  function newgame(){
-    setItems(["", "", "", "", "", "", "", "", ""])
-    setToggle(true)
-    setisactive(true)
-
+  function newgame() {
+    setItems(["", "", "", "", "", "", "", "", ""]);
+    setToggle(true);
+    setwinner("");
+    setisactive(true);
   }
- 
 
   return (
     <Context.Provider
-      value={{ items, setItems, toggle, setToggle, handleClick, isactive,newgame }}
+      value={{
+        items,
+        setItems,
+        toggle,
+        setToggle,
+        handleClick,
+        isactive,
+        newgame,
+        winner,
+      }}
     >
       {children}
     </Context.Provider>

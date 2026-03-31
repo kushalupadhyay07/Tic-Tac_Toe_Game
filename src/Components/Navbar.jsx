@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <div className="h-15/100  flex justify-center items-center ">
+    <div className="h-15/100  flex justify-center items-center  ">
       <div className="flex gap-10 border-2 w-[300px] justify-between p-3 rounded-2xl text-white bg-orange-800 box-border h-7/10">
         <NavLink
           to="/"

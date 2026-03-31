@@ -6,6 +6,7 @@ function ContextProvider({ children }) {
   const [items, setItems] = useState(["", "", "", "", "", "", "", "", ""]);
   const [toggle, setToggle] = useState(true);
   const [isactive, setisactive] = useState(true);
+  const [full,setfull]=useState(false);
 
   function handleClick(index) {
     if (items[index] === "" && isactive) {
@@ -45,6 +46,14 @@ function ContextProvider({ children }) {
   useEffect(() => {
     checkpairs();
   }, [items]);
+  useEffect(()=>{
+   let val=items.every((item)=>{
+    return item==="X"||item==="O";
+   })
+   setfull(val);
+   
+  },[items]
+  )
 
   function newgame() {
     setItems(["", "", "", "", "", "", "", "", ""]);
@@ -64,6 +73,8 @@ function ContextProvider({ children }) {
         isactive,
         newgame,
         winner,
+        full,
+        
       }}
     >
       {children}

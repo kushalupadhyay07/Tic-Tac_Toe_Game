@@ -7,11 +7,11 @@ import { Context } from "../store/Context";
 
 export default function Home() {
   let {newgame}=useContext(Context)
-  return <div className="h-80/100  flex flex-col items-center">
+  return <div className="h-screen  flex flex-col items-center">
     
       <Text></Text>
     
-    <div className="flex justify-between box-border p-3 h-8/10 items-center  w-full">
+    <div className="flex justify-between box-border p-3 h-7/10 items-center  w-full">
       <Player1></Player1>
       <Play></Play>
       <Player2></Player2>
